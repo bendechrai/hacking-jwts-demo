@@ -1,0 +1,64 @@
+{
+  "name": "netlify-react-functions",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Esau Silva (@_esausilva)",
+    "url": "https://esausilva.com"
+  },
+  "scripts": {
+    "start": "run-p start:**",
+    "start:app": "react-scripts start",
+    "start:lambda": "netlify-lambda serve src/api",
+    "build": "run-p build:**",
+    "build:app": "react-scripts build",
+    "build:lambda": "netlify-lambda build src/api",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy:draft": "netlify deploy --dir=build --functions=functions",
+    "deploy:prod": "netlify deploy --dir=build --functions=functions --prod"
+  },
+  "dependencies": {
+    "base64-url": "^2.3.3",
+    "crypto-js": "^4.0.0",
+    "js-base64": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "node-forge": "^0.10.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
+    "babel-loader": "^8.1.0",
+    "http-proxy-middleware": "^1.0.3",
+    "netlify-lambda": "^1.6.3",
+    "npm-run-all": "^4.1.5"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esausilva/react-production-deployment"
+  },
+  "bugs": {
+    "url": "https://github.com/esausilva/react-production-deployment/issues"
+  },
+  "keywords": [
+    "netlify",
+    "serverless functions",
+    "create-react-app",
+    "react"
+  ]
+}

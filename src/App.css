@@ -1,0 +1,50 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: auto;
+}
+
+textarea {
+  font-size: 150%;
+  width: 100%;
+}
+
+button {
+  font-size: 1.1em;
+}
+
+.jwt-editor {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.jwt-editor div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.jwt-editor textarea {
+  height: 10vh;
+}
+.jwt-editor .encoded textarea {
+  height: calc(40vh + 1.7em + 8px);
+}
+
+.request-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.request-result {
+  font-size: 2em;
+  overflow: scroll;
+}
+
+.tips textarea {
+  height: 15vh;
+}
