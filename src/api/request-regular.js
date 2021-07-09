@@ -5,20 +5,29 @@ export function handler(event, context, callback) {
   const token = event.headers.authorization.replace(/^bearer /i, "");
   const response = {
     isAdmin: false,
-    tokenUsed: token,
     status: 200,
   };
 
   try {
-    const [_header, _payload, _signature] = token.split(".");
-    const header = JSON.parse(decode(_header));
+    // Set a default empty payload
     let payload = {};
+
+    // Extract the header from the JWT
+    const header = JSON.parse(decode(token.split(".")[0]));
+
+    // If header says HS256, extract payload using pre-shared key
     if (header.alg === "HS256") {
       payload = jwt.verify(token, "secret");
+
+      // If header says RS256, extract payload using public key (defined below)
     } else {
       payload = jwt.verify(token, pubKey);
     }
+
+    // If payload.name is "admin", set response to TRUE
     if (payload.name === "admin") response.isAdmin = true;
+
+    // If we cantch any error, access denied!
   } catch (e) {
     response.error = e;
     response.status = 401;
